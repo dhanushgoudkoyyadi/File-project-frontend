@@ -1,0 +1,92 @@
+/* Centering the login container */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #FFFACD; /* Light yellow background */
+}
+
+/* Login card styling */
+.login-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  width: 350px;
+}
+
+.login-card:hover {
+  transform: scale(1.05);
+}
+
+/* Title styling */
+.login-title {
+  color: #228B22; /* Emerald color */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Input focus effect */
+.form-input:focus {
+  border-color: #228B22;
+  box-shadow: 0 0 5px rgba(34, 139, 34, 0.5);
+  outline: none;
+}
+
+/* Login button */
+.login-button {
+  width: 100%;
+  background-color: #228B22;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Hover effect */
+.login-button:hover {
+  background-color: #006400; /* Darker emerald */
+  transform: scale(1.02);
+}
+
+/* Disabled state */
+.login-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}

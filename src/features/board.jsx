@@ -1,51 +1,86 @@
 import React, { useState } from 'react';
-import { useAddMutation } from '../service/leads';
+import { useAddMutation, useGetQuery } from '../service/leads';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './board.css';
+import Navbar from '../features/Navbar';
+import { jwtDecode } from 'jwt-decode';
+import User from './User';
 
 const FileUpload = () => {
   const [file, setFile] = useState(null);
-  const [username, setUsername] = useState('');
+  const [filename, setFilename] = useState('');
   const [add] = useAddMutation();
+  const { data: files } = useGetQuery();
+  console.log(files);
+  
+  const username = files?.username || '';
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFilename(selectedFile.name);
+    }
   };
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  const handleFilenameChange = (event) => setFilename(event.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!file || !username) {
-      alert('Please enter a username and select a file to upload.');
+    if (!file || !filename) {
+      alert('Please enter a filename and select a file.');
       return;
     }
-
     try {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('username', username); 
+      formData.append('filename', filename);
 
-      await add(formData).unwrap();
+      // Extract user ID from the stored token
+      const token = localStorage.getItem('token');
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id || decodedToken._id;
+      formData.append('userId', userId);
+
+      await add({ formData, userId }).unwrap();
       alert('File uploaded successfully.');
+      setFile(null);
+      setFilename('');
+      document.getElementById('fileInput').value = '';
     } catch (error) {
       console.error('Failed to upload file:', error);
+      alert('Failed to upload file. Please try again.');
     }
   };
 
   return (
-    <div className="container mt-5">
-      <form onSubmit={handleSubmit} method="POST" encType="multipart/form-data" className="p-4 rounded border bg-light">
-        <div className="form-group">
-          <label htmlFor="username" className="form-label">Username</label>
-          <input type="text" name="username" id="username" className="form-control" onChange={handleUsernameChange} />
-          <label htmlFor="fileInput" className="form-label mt-3">Choose File</label>
-          <input type="file" name="file" id="fileInput" className="form-control" onChange={handleFileChange} />
-        </div>
-        <button type="submit" className="btn btn-success mt-3">Upload</button>
-      </form>
+    <div>
+      <Navbar />
+      <br /><br />
+      <div class="name">
+        <h1 style={{color:"green"}}>  Welcome To {username.toUpperCase()}....</h1>
+      </div>
+      <div className="container mt-5">
+        <h2 className="upload-title"> Please Upload Your File</h2>
+        <br />
+        <form onSubmit={handleSubmit} method="POST" encType="multipart/form-data" className="upload-form">
+          <div className="form-group">
+            <label htmlFor="filename" className="form-label">Filename</label>
+            <input type="text" name="filename" id="filename" className="form-input" value={filename} onChange={handleFilenameChange} required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="fileInput" className="form-label">Choose File</label>
+            <input type="file" name="file" id="fileInput" className="form-input" onChange={handleFileChange} required />
+          </div>
+          <br />
+          <br />
+          <button type="submit" className="upload-button btn btn-primary">Upload</button>
+        </form>
+      </div>
+      <br />
+      <br />
+      <br />
+      <User />
     </div>
   );
 };

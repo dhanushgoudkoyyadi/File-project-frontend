@@ -1,0 +1,40 @@
+.navbar {
+  background-color: #FFFACD; /* Light yellow color */
+  padding: 10px 20px;
+  border-bottom: 2px solid #228B22; /* Emerald color */
+}
+
+.navbar-brand {
+  color: #228B22; /* Emerald color */
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+
+.nav-link {
+  color: #228B22; /* Emerald color */
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #006400; /* Darker emerald color */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28224, 224, 192, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.logout-button {
+  background-color: #ff6347; /* Tomato color */
+  border-color: #ff6347;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.logout-button:hover {
+  background-color: #cc4e39; /* Darker tomato color */
+}

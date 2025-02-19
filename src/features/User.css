@@ -1,0 +1,58 @@
+.user-container {
+  background-color: #FFFACD; /* Light yellow color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #228B22; /* Emerald color */
+  border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  transform: scale(1.05);
+}
+
+.custom-header {
+  color: #228B22; /* Emerald color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.custom-loading, .custom-error {
+  color: #ff6347; /* Tomato color for errors */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.custom-table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.table-row:hover {
+  background-color: #F0E68C; /* Light khaki color for hover effect */
+}

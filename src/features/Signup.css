@@ -1,0 +1,45 @@
+
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #FFFACD; /* Light yellow color */
+}
+
+.signup-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.signup-card:hover {
+  transform: scale(1.05);
+}
+
+.signup-title {
+  color: #FF8C00; /* Orange for contrast */
+  text-align: center;
+}
+
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.signup-button {
+  width: 100%;
+  background-color: #FF8C00;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.signup-button:hover {
+  background-color: #E07B00; /* Darker orange */
+}

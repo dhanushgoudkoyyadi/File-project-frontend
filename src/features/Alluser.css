@@ -1,0 +1,17 @@
+.custom-header {
+    color: white;
+    background-color: green;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .custom-loading, .custom-error {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .custom-table thead {
+    background-color: green;
+    color: white;
+  }
+  
